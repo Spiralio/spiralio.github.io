@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Time Left</title>
+        <script src="scripts/main.js"></script>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body onload="load()">
+        <canvas id="canvaBg" width="100%" height="100%"></canvas>
+        <div class="cont">
+            <div id="perc">0</div>
+            <div id="smallPerc">0</div>
+            <div class="percSymbol">%</div>
+            <div class="barCont">
+                <div id="barDone"></div>
+                <div id="barLeft"></div>    
+            </div>
+
+            <div id="nextMilestone"><div id="milestonePerc">10%</div> in <div id="milestoneTime">15 hours</div></div>
+        </div>
+    </body>
+</html>

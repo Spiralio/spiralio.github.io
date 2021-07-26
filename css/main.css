@@ -1,0 +1,73 @@
+body {
+    background-color: #191924; 
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.cont {
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+#perc {
+    font-size: 60pt;
+    color: white;
+    display: inline-block;
+}
+
+#smallPerc {
+    color: white;
+    font-size: 40pt;
+    display: inline-block;
+    margin-left: 0px;
+    width: 80px;
+}
+
+.percSymbol {
+    font-size: 60pt;
+    display: inline-block;
+    color: white;
+    margin-left: 0px;
+}
+
+.barCont {
+    display: block;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#barDone {
+    width: calc(50vw/2);
+    height: 10px;
+    background-color: black;
+    float: left;
+}
+
+#barLeft {
+    width: calc(50vw/2);
+    height: 10px;
+    background-color: white;
+    float: left;
+}
+
+#canvaBg {
+    /* height: 100%;
+    width: 100%; */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#nextMilestone {
+    color: white;
+    margin-top: 35px;
+    font-size: 22pt;
+}
+
+#nextMilestone div {
+    display: inline-block;
+}
