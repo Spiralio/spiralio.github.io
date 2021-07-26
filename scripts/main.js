@@ -24,7 +24,7 @@ function load() {
         smallPerc = perc.toFixed(6).toString().slice(smallPerc.length - 2,smallPerc.length)
         
         document.getElementById('smallPerc').innerHTML = smallPerc
-        document.getElementById('smallPerc').style.color = `hsl(${(perc.toString().slice(6,8)/100)*145}, 100%, 60%)`
+        document.getElementById('smallPerc').style.color = `hsl(${(smallPerc/100)*145}, 100%, 60%)`
 
         document.getElementById('barDone').style.width = `calc(50vw*${1 - (endTime.getTime() - curTime)/total})`
         document.getElementById('barLeft').style.width = `calc(50vw*${(endTime.getTime() - curTime)/total})`
