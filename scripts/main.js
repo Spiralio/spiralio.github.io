@@ -109,8 +109,8 @@ function loadCanvas() {
         star.moveX += moveX/framesNeeded
         star.moveY += moveY/framesNeeded
 
-        star.x += ((moveX/framesNeeded)/100) * (star.speed + 0.05)
-        star.y += ((moveY/framesNeeded)/100) * (star.speed + 0.05)
+        star.x += ((moveX/framesNeeded)/80) * (star.speed + 0.05)
+        star.y += ((moveY/framesNeeded)/80) * (star.speed + 0.05)
 
         moveX -= moveX/framesNeeded
         moveY -= moveY/framesNeeded
@@ -126,7 +126,7 @@ function loadCanvas() {
         ctx.fillStyle = '#8c8c91'
         ctx.fill()
 
-        star.y += (0.00003 * star.speed + 0.00002) * (perc/100);
+        star.y += ((0.00003 * star.speed + 0.00002) * (perc/100))*2;
 
         if (star.y >= 1) star.y -= 1
         if (star.x >= 1) star.x -= 1
