@@ -3,12 +3,14 @@ body {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    height: 100%;
 }
 
 .cont {
     position: absolute; 
     left: 50%; 
     top: 50%; 
+    width: 100%;
     transform: translate(-50%, -50%);
 }
 
@@ -38,6 +40,11 @@ body {
     border-radius: 100px;
     overflow: hidden;
     margin-top: 20px;
+    position:relative;
+    width: calc(50vw);
+    height: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #barDone {
@@ -45,13 +52,21 @@ body {
     height: 10px;
     background-color: black;
     float: left;
+    position: absolute;
+    z-index: 6;
+}
+
+.hideOverflow {
+    overflow: hidden;
 }
 
 #barLeft {
-    width: calc(50vw/2);
+    width: 100%;
+    position: absolute;
     height: 10px;
     background-color: white;
     float: left;
+    z-index: 5;
 }
 
 #canvaBg {
