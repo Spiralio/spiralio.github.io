@@ -3,14 +3,15 @@
         <title>Time Left</title>
         <script src="scripts/main.js"></script>
         <script src="scripts/styles/night.js"></script>
+        <script src="scripts/styles/dvd.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </head>
-    <body onload="load()">
+    <body id="body" onload="load()">
 
-        <div id="nightStyle">
+        <div id="moonCont">
             <canvas class="moon" id="moonTop" width="500" height="500"></canvas>
             <canvas class="moon" id="moonBottom" width="500" height="500"></canvas>    
         </div>
@@ -31,7 +32,7 @@
                 </div>
             </div>
             
-            <div class="barCont">
+            <div class="barCont" id="barCont">
                 <div class="hideOverflow">
                     <div id="barDone"></div>
                     <div id="barLeft"></div>    
@@ -39,6 +40,17 @@
             </div>
 
             <div id="nextMilestone"><div id="milestonePerc">10%</div> in <div id="milestoneTime">15 hours</div></div>
+        </div>
+
+        <div id="styleCont">
+            <div id="style0" class="styleButton" onclick="setStyle(0)">
+                <img src="./assets/styles/nightOn.png" alt="Night">
+            </div>
+
+            <div id="style1" class="styleButton" onclick="setStyle(1)">
+                <img src="./assets/styles/dvdOff.png" alt="Night">
+            </div>
+
         </div>
     </body>
 </html>

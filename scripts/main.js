@@ -7,7 +7,7 @@ const total = endTime.getTime() - startTime.getTime();
  * 
  * 0 = Night
  */
- const style = 0
+ let style = 0
 
 let c, ctx;   // Canvas
 let perc = 0; // Total Percentage
@@ -87,6 +87,7 @@ function frame() {
 
     // Load the style every frame
     if (style == 0) loadNight()
+    if (style == 1) loadDVD()
 }
 
 /**
@@ -141,4 +142,49 @@ function getCursorXY(e) {
 
     cursorX = newCursorX
     cursorY = newCursorY
+}
+
+function setStyle(number) {
+
+    document.getElementById('styleCont').childNodes.forEach((x) => {
+        if (!x.id) return;
+
+        if (x.id.endsWith(number)) {
+            x.childNodes[1].src = x.childNodes[1].src.replace('Off', 'On')
+        } else {
+            x.childNodes[1].src = x.childNodes[1].src.replace('On', 'Off')
+        }
+
+        initializeStyle(number)
+        // console.log(x.id)
+    })
+
+}
+
+function initializeStyle(number) {
+    style = number;
+    let body = document.getElementById('body')
+
+    body.style.transition = 'background-color 0.5s'
+
+    if (number == 0) {
+        body.style.fontFamily = 'Poppins'
+        body.style.fontWeight = 600
+        document.getElementById('moonCont').style.transition = 'opacity 1.2s'
+        document.getElementById('moonCont').style.opacity = 1
+        body.style.backgroundColor = '#191924'
+        document.getElementById('barCont').style.borderRadius = '100px';
+        document.getElementById('barCont').style.marginTop = '20px';
+    } else {
+        document.getElementById('moonCont').style.transition = 'opacity 0.2s'
+        document.getElementById('moonCont').style.opacity = 0
+    }
+    
+    if (number == 1) {
+        body.style.fontFamily = 'vcr'
+        body.style.fontWeight = 'inherit'
+        body.style.backgroundColor = 'black'
+        document.getElementById('barCont').style.borderRadius = '0px';
+        document.getElementById('barCont').style.marginTop = '0px';
+    }
 }

@@ -1,17 +1,22 @@
+@font-face {
+    font-family: "vcr";
+    src: url("../assets/fonts/vcr.ttf");
+}
+
 body {
     background-color: #191924; 
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-weight: 600;
     height: 100%;
     margin: 0px;
 }
 
+
 .cont {
     position: absolute; 
     left: 50%; 
     top: 50%; 
-    width:70%;
     transform: translate(-50%, -50%);
 }
 
@@ -46,7 +51,7 @@ body {
     overflow: hidden;
     margin-top: 20px;
     position:relative;
-    width: calc(50vw);
+    width: calc(55vw);
     height: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -93,13 +98,13 @@ body {
 }
 
 .moon {
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 65px;
-    z-index: 20;
+    left: 0px;
+    top: 0px;
+    transition: 0.4s transform;
+
     /* background-color: orange; */
 }
 
@@ -117,14 +122,15 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    overflow: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
     transition: top 0.3s, height 0.3s;
-    width: 100%;
+    min-width: 100%;
 }
 
 .percCont {
     height: 100%;
-    top: 0px;
+    top: 0%;
 }
 
 .timeCont {
@@ -140,4 +146,45 @@ body {
 .bigCont:hover .percCont {
     height: 0%;
     top: 100%;
+}
+
+#moonCont {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(25deg);
+    top: 65px;
+    z-index: 20;
+    width: 160px;
+    height: 160px;
+    transition: opacity 0.2s;
+}
+
+#moonCont:hover .moon {
+    transform: scale(1.12);
+}
+
+#styleCont {
+    position: absolute;
+    bottom: 20px;
+    z-index: 20;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    font-family: 'Poppins';
+
+}
+
+.styleButton {
+    display: inline-block;
+    margin: 0px 10px 0px 10px;
+}
+
+#styleCont img {
+    height: 35px;
+    /* padding: 0px 0px 10px 0px; */
+    cursor: pointer;
+}
+
+#nightStyle {
+    /* border-bottom: 4px solid white; */
 }
