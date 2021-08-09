@@ -4,19 +4,24 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     height: 100%;
+    margin: 0px;
 }
 
 .cont {
     position: absolute; 
     left: 50%; 
     top: 50%; 
-    width: 100%;
+    width:70%;
     transform: translate(-50%, -50%);
 }
 
-#perc {
+#perc, #time {
     font-size: 60pt;
     color: white;
+    display: inline-block;
+}
+
+#time div {
     display: inline-block;
 }
 
@@ -85,4 +90,54 @@ body {
 
 #nextMilestone div {
     display: inline-block;
+}
+
+.moon {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 65px;
+    z-index: 20;
+    /* background-color: orange; */
+}
+
+#moonTop {
+    z-index: 21;
+}
+
+.bigCont {
+    position: relative;
+    height: 60pt;
+    padding-bottom: 35px;
+}
+
+.timeCont, .percCont {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    transition: top 0.3s, height 0.3s;
+    width: 100%;
+}
+
+.percCont {
+    height: 100%;
+    top: 0px;
+}
+
+.timeCont {
+    height: 0px;
+    top: 100%;
+}
+
+.bigCont:hover .timeCont {
+    height: 100%;
+    top: 0%;
+}
+
+.bigCont:hover .percCont {
+    height: 0%;
+    top: 100%;
 }

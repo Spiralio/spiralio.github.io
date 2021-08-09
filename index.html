@@ -2,17 +2,35 @@
     <head>
         <title>Time Left</title>
         <script src="scripts/main.js"></script>
+        <script src="scripts/styles/night.js"></script>
         <link rel="stylesheet" href="css/main.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     </head>
     <body onload="load()">
+
+        <div id="nightStyle">
+            <canvas class="moon" id="moonTop" width="500" height="500"></canvas>
+            <canvas class="moon" id="moonBottom" width="500" height="500"></canvas>    
+        </div>
+
         <canvas id="canvaBg" width="100%" height="100%"></canvas>
+
         <div class="cont">
-            <div id="perc">0</div>
-            <div id="smallPerc">0</div>
-            <div class="percSymbol">%</div>
+            <div class="bigCont">
+                <div class="percCont">
+                    <div id="perc">0</div>
+                    <div id="smallPerc">0</div>
+                    <div class="percSymbol">%</div>    
+                </div>
+                <div class="timeCont">
+                    <div id="time">
+                        <div id="days">00</div>d <div id="hours">00</div>h <div id="minutes">00</div>m <div id="seconds">00</div>s
+                    </div>
+                </div>
+            </div>
+            
             <div class="barCont">
                 <div class="hideOverflow">
                     <div id="barDone"></div>
