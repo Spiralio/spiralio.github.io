@@ -1,3 +1,9 @@
+// DVD Style
+
+styles.dvd = {
+    name: 'DVD'
+}
+
 var img = new Image; 
 img.src = "./assets/dvd.png";
 
@@ -11,10 +17,38 @@ let dvdY = 0;
 let moveRight = true;
 let moveDown = true;
 
-let dvdColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+let dvdColor;
 
-function loadDVD() {
+/**
+ * Runs when loaded
+ */
+styles.dvd.load = () => {
+    body.style.fontFamily = 'vcr'
+    body.style.fontWeight = 'inherit'
+    body.style.background = '#08080C'
+    document.getElementById('barCont').style.borderRadius = '0px';
+    document.getElementById('barCont').style.marginTop = '0px';
 
+    dvdX = Math.random() * (c.width - size)
+    dvdY = Math.random() * (c.height - size)
+
+    moveRight = Math.floor(Math.random() * 2) == 0
+    moveDown = Math.floor(Math.random() * 2) == 0
+
+    dvdColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+}
+
+/**
+ * Runs when unloaded
+ */
+styles.dvd.unload = () => {
+    return;
+}
+
+/**
+ * Runs every frame
+ */
+styles.dvd.frame = () => {
     let sizeHeight = size * img.height / img.width
 
     if (moveRight) dvdX += speed;
@@ -26,13 +60,13 @@ function loadDVD() {
     let beforeRight = moveRight
     let beforeDown = moveDown
 
-    if (dvdX > c.width - sizeHeight*2 || dvdX < 0) moveRight = !moveRight
-    if (dvdY + size/2 > c.height || dvdY < 0) moveDown = !moveDown
+    if (dvdX > c.width - size || dvdX < 0) moveRight = !moveRight
+    if (dvdY > c.height - sizeHeight || dvdY < 0) moveDown = !moveDown
 
-    if (dvdX - 1 > c.width - sizeHeight*2) dvdX = c.width - sizeHeight*2
-    if (dvdX + 1 < 0) dvdX = 0
-    if (dvdY - 1 + size/2 > c.height) dvdY = c.height
-    if (dvdY + 1 < 0) dvdY = 0
+    if (dvdX > c.width - size) dvdX = c.width - size
+    if (dvdX < 0) dvdX = 0
+    if (dvdY > c.height - sizeHeight) dvdY = c.height - sizeHeight
+    if (dvdY < 0) dvdY = 0
 
 
     if (beforeRight != moveRight || beforeDown != moveDown) dvdColor = `hsl(${Math.random() * 360}, 100%, 50%)`

@@ -1,15 +1,23 @@
 <html>
     <head>
         <title>Time Left</title>
+
         <script src="scripts/main.js"></script>
+
         <script src="scripts/styles/night.js"></script>
         <script src="scripts/styles/dvd.js"></script>
+        <script src="scripts/styles/rain.js"></script>
+
         <link rel="stylesheet" href="css/main.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Merriweather&display=swap" rel="stylesheet">
+
     </head>
     <body id="body" onload="load()">
+
+        <div id="gradient"></div>
 
         <div id="moonCont">
             <canvas class="moon" id="moonTop" width="500" height="500"></canvas>
@@ -34,7 +42,9 @@
             
             <div class="barCont" id="barCont">
                 <div class="hideOverflow">
+                    <div id="barOverlay"></div>
                     <div id="barDone"></div>
+                    <div id="barPreview"></div>
                     <div id="barLeft"></div>    
                 </div>
             </div>
@@ -43,12 +53,16 @@
         </div>
 
         <div id="styleCont">
-            <div id="style0" class="styleButton" onclick="setStyle(0)">
+            <div id="style_night" class="styleButton" onclick="setStyle('night')">
                 <img src="./assets/styles/nightOn.png" alt="Night">
             </div>
 
-            <div id="style1" class="styleButton" onclick="setStyle(1)">
+            <div id="style_dvd" class="styleButton" onclick="setStyle('dvd')">
                 <img src="./assets/styles/dvdOff.png" alt="Night">
+            </div>
+
+            <div id="style_rain" class="styleButton" onclick="setStyle('rain')">
+                <img src="./assets/styles/rainOff.png" alt="Rain">
             </div>
 
         </div>

@@ -7,7 +7,11 @@ const total = endTime.getTime() - startTime.getTime();
  * 
  * 0 = Night
  */
- let style = 0
+
+let styles = {}
+let style = 'night'
+
+let milestone = 0;
 
 let c, ctx;   // Canvas
 let perc = 0; // Total Percentage
@@ -23,6 +27,14 @@ function load() {
     c = document.getElementById("canvaBg");
     ctx = c.getContext("2d");
 
+    document.getElementById('nextMilestone').onmouseover = () => {
+        togglePreview(true, milestone)
+    }
+
+    document.getElementById('nextMilestone').onmouseout = () => {
+        togglePreview(false)
+    }
+
     // Run this every frame
     setInterval(() => frame(), 1);
 }
@@ -34,6 +46,7 @@ function frame() {
     const curTime = Date.now()
     const timeLeft = endTime.getTime() - curTime
 
+
     // Set the percentages
     perc = (1 - (timeLeft)/total) * 100
     document.getElementById('perc').innerHTML = perc.toFixed(6).slice(0, perc.toFixed(7).length - 3)
@@ -43,6 +56,7 @@ function frame() {
     
     document.getElementById('smallPerc').innerHTML = smallPerc
     document.getElementById('smallPerc').style.color = color(smallPerc/100)
+
 
     // Set the time left
     let tLeft = timeLeft
@@ -77,6 +91,7 @@ function frame() {
 
     nextMilestone()
 
+
     // Set up the canvas
     ctx.clearRect(0, 0, c.width, c.height);
 
@@ -85,9 +100,40 @@ function frame() {
     c.width  = c.clientWidth*2;
     c.height = c.clientHeight*2;
 
+
     // Load the style every frame
-    if (style == 0) loadNight()
-    if (style == 1) loadDVD()
+    styles[style].frame()
+}
+
+/**
+ * Set a style to a newStyle
+ */
+ function setStyle(newStyle) {
+    if (style == newStyle) return;
+
+    document.getElementById('styleCont').childNodes.forEach((x) => {
+        if (!x.id) return;
+
+        if (x.id.endsWith(newStyle))
+            x.childNodes[1].src = x.childNodes[1].src.replace('Off', 'On')
+        else
+            x.childNodes[1].src = x.childNodes[1].src.replace('On', 'Off')
+
+        let body = document.getElementById('body')
+        body.style.transition = 'background 0.5s'
+
+        styles[style].unload()
+        styles[newStyle].load()
+
+        style = newStyle
+    })
+}
+
+function togglePreview(toggle, perc) {
+    if (!toggle) return document.getElementById('barPreview').style.width = 0
+
+    document.getElementById('barPreview').style.left = `calc(${document.getElementById('barDone').style.width})`
+    document.getElementById('barPreview').style.width = `calc(50vw*${perc/100} - ${document.getElementById('barDone').style.width})`
 }
 
 /**
@@ -105,6 +151,8 @@ function nextMilestone() {
     let mins = Math.floor(left/1000/60)
     left -= mins * 60000;
     let secs = Math.floor(left/1000)
+
+    milestone = next;
 
     document.getElementById('milestoneTime').innerHTML = `${hours}:${mins.toString().length == 1 ? '0' + mins : mins}:${secs.toString().length == 1 ? '0' + secs : secs}`
     document.getElementById('milestonePerc').innerHTML = `${next}%`
@@ -126,6 +174,9 @@ function formatNumber(x) {
     return s.substring(0, s.indexOf(".") + 3);
 }
 
+/**
+ * Get a color from a percentage
+ */
 function color(perc) {
     return `hsl(${(perc)*130}, 100%, 60%)`
 }
@@ -142,49 +193,4 @@ function getCursorXY(e) {
 
     cursorX = newCursorX
     cursorY = newCursorY
-}
-
-function setStyle(number) {
-
-    document.getElementById('styleCont').childNodes.forEach((x) => {
-        if (!x.id) return;
-
-        if (x.id.endsWith(number)) {
-            x.childNodes[1].src = x.childNodes[1].src.replace('Off', 'On')
-        } else {
-            x.childNodes[1].src = x.childNodes[1].src.replace('On', 'Off')
-        }
-
-        initializeStyle(number)
-        // console.log(x.id)
-    })
-
-}
-
-function initializeStyle(number) {
-    style = number;
-    let body = document.getElementById('body')
-
-    body.style.transition = 'background-color 0.5s'
-
-    if (number == 0) {
-        body.style.fontFamily = 'Poppins'
-        body.style.fontWeight = 600
-        document.getElementById('moonCont').style.transition = 'opacity 1.2s'
-        document.getElementById('moonCont').style.opacity = 1
-        body.style.backgroundColor = '#191924'
-        document.getElementById('barCont').style.borderRadius = '100px';
-        document.getElementById('barCont').style.marginTop = '20px';
-    } else {
-        document.getElementById('moonCont').style.transition = 'opacity 0.2s'
-        document.getElementById('moonCont').style.opacity = 0
-    }
-    
-    if (number == 1) {
-        body.style.fontFamily = 'vcr'
-        body.style.fontWeight = 'inherit'
-        body.style.backgroundColor = 'black'
-        document.getElementById('barCont').style.borderRadius = '0px';
-        document.getElementById('barCont').style.marginTop = '0px';
-    }
 }

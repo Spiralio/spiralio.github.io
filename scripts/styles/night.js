@@ -1,9 +1,38 @@
+// NIGHT STYLE
+
+styles.night = {
+    name: 'Night'
+}
+
 let stars = []
 
 let moveX = 0;
 let moveY = 0;
 
-function loadNight() {
+/**
+ * Runs when loaded
+ */
+styles.night.load = () => {
+    body.style.fontFamily = 'Poppins'
+    body.style.fontWeight = 600
+    document.getElementById('moonCont').style.transition = 'opacity 1.2s'
+    document.getElementById('moonCont').style.opacity = 1
+    body.style.background = '#191924'
+
+}
+
+/**
+ * Runs when unloaded
+ */
+styles.night.unload = () => {
+    document.getElementById('moonCont').style.transition = 'opacity 0.2s'
+    document.getElementById('moonCont').style.opacity = 0
+}
+
+/**
+ * Runs every frame
+ */
+styles.night.frame = () => {
     if (stars.length < Math.floor((perc/100) * 1000)) genStars(1)
 
     for (i = 0; i < stars.length; i++) {
@@ -49,6 +78,11 @@ function loadNight() {
     setupMoon()
 }
 
+// Style functions
+
+/**
+ * Setup the moon
+ */
 function setupMoon() {
     let moonTop = document.getElementById('moonTop');
     let topCtx = moonTop.getContext('2d');
@@ -128,8 +162,6 @@ function genStars(num) {
         })
     }
 }
-
-// Moon phase functions
 
 const LUNAR_MONTH = 29.530588853;
 
