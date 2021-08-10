@@ -42,7 +42,7 @@ styles.dvd.load = () => {
  * Runs when unloaded
  */
 styles.dvd.unload = () => {
-    return;
+    document.getElementById('barCont').style.marginTop = '20px';
 }
 
 /**
