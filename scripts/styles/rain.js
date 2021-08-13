@@ -30,9 +30,6 @@ styles.rain.load = () => {
  * Runs when unloaded
  */
 styles.rain.unload = () => {
-    document.getElementById('barCont').style.borderRadius = '100px';
-    document.getElementById('barCont').style.marginTop = '20px';
-
     document.getElementById('gradient').style.opacity = 0
 
     if (timeout) clearInterval(timeout)

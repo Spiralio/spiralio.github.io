@@ -7,6 +7,7 @@
         <script src="scripts/styles/night.js"></script>
         <script src="scripts/styles/dvd.js"></script>
         <script src="scripts/styles/rain.js"></script>
+        <script src="scripts/styles/sun.js"></script>
 
         <link rel="stylesheet" href="css/main.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,12 +18,26 @@
     </head>
     <body id="body" onload="load()">
 
+        <!-- Gradient for the rain theme -->
         <div id="gradient"></div>
 
+        <!-- Moon for the night theme -->
         <div id="moonCont">
             <canvas class="moon" id="moonTop" width="500" height="500"></canvas>
             <canvas class="moon" id="moonBottom" width="500" height="500"></canvas>    
         </div>
+
+        <!-- Gradients for the sun theme -->
+        <div id="sunGradients">
+            <div id="leftGradient"></div>
+            <div id="rightGradient"></div>
+        </div>
+
+        <div id="timesCont">
+            <div id="timeTextLeftCont"><div id="timeTextLeft">00:00:00</div></div>
+            <div id="timeTextRightCont"><div id="timeTextRight">00:00:00</div></div>
+        </div>
+
 
         <canvas id="canvaBg" width="100%" height="100%"></canvas>
 
@@ -58,11 +73,15 @@
             </div>
 
             <div id="style_dvd" class="styleButton" onclick="setStyle('dvd')">
-                <img src="./assets/styles/dvdOff.png" alt="Night">
+                <img src="./assets/styles/dvdOff.png" alt="DVD">
             </div>
 
             <div id="style_rain" class="styleButton" onclick="setStyle('rain')">
                 <img src="./assets/styles/rainOff.png" alt="Rain">
+            </div>
+
+            <div id="style_sun" class="styleButton" onclick="setStyle('sun')">
+                <img src="./assets/styles/SunOff.png" alt="Sun">
             </div>
 
         </div>

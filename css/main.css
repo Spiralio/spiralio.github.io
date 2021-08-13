@@ -27,6 +27,26 @@ body {
     background: linear-gradient(180deg, rgba(145,160,167,1) 0%, rgba(94,105,113,1) 100%);
 }
 
+#sunGradients {
+    transition: opacity 0.2s;
+    opacity: 0;
+    display: none;
+}
+
+#leftGradient, #rightGradient {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(180deg, rgba(5,10,42,1) 0%, rgba(7,9,55,1) 16%, rgba(23,62,115,1) 38%, rgba(36,105,163,1) 41%, rgba(68,255,222,1) 45%, rgba(69,224,248,1) 48%, rgba(129,247,255,1) 64%, rgba(98,233,254,1) 86%, rgba(255,163,61,1) 89%, rgba(255,62,62,1) 90%, rgba(243,65,142,1) 90.5%, rgba(15,26,78,1) 92%, rgba(13,29,78,1) 96%, rgba(5,10,42,1) 100%);
+    height: calc(50 * 100%);
+}
+
+#rightGradient {
+    left: 50%;
+}
+
 
 .cont {
     position: absolute; 
@@ -210,4 +230,39 @@ body {
 #styleCont img {
     height: 35px;
     /* padding: 0px 0px 10px 0px; */
+}
+
+#timesCont {
+    transition: opacity 0.2s;
+    opacity: 0;
+    display: none;
+    color: white;
+    font-size: 24pt;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+#timeTextLeftCont {
+    position: absolute;
+    z-index: 20;
+    left: 0px;
+    width: 50%;
+    top: 20px;
+    
+}
+
+#timeTextRightCont {
+    position: absolute;
+    z-index: 20;
+    left: 50%;
+    width: 50%;
+    top: 20px;
+}
+
+#timeTextRight, #timeTextLeft {
+    padding: 0px 10px 0px 10px;
+    border: 5px solid white;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 180px;
 }

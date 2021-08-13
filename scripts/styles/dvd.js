@@ -43,6 +43,7 @@ styles.dvd.load = () => {
  */
 styles.dvd.unload = () => {
     document.getElementById('barCont').style.marginTop = '20px';
+    document.getElementById('barCont').style.borderRadius = '100px';
 }
 
 /**

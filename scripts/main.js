@@ -166,12 +166,7 @@ function nextMilestone() {
  * @returns The formatted number
  */
 function formatNumber(x) {
-    let s = x.toString();
-    if (s.indexOf(".") == -1) {
-        s += ".";
-    }
-    s += "00";
-    return s.substring(0, s.indexOf(".") + 3);
+    return x.toString().length == 1 ? '0' + x : x
 }
 
 /**
