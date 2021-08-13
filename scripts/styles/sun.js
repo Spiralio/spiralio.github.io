@@ -40,7 +40,7 @@ if (francePercSun < 0) francePercSun += 1
 if (seattlePercSun < 0) seattlePercSun += 1
 
 let moon = new Image;
-moon.src = "./assets/moonFull.png";
+moon.src = "./assets/moonfull.png";
 
 
 let sun = new Image;
