@@ -33,12 +33,6 @@ styles.sun.unload = () => {
  * Runs every frame
  */
 
-let francePercSun = getPercOfDay(getTimezone(2)) - .40
-let seattlePercSun = getPercOfDay(getTimezone(-7)) - .40
-
-if (francePercSun < 0) francePercSun += 1
-if (seattlePercSun < 0) seattlePercSun += 1
-
 let moon = new Image;
 moon.src = "./assets/moonfull.png";
 
@@ -48,6 +42,13 @@ sun.src = "./assets/sun.png";
 
 
 styles.sun.frame = () => {
+
+    let francePercSun = getPercOfDay(getTimezone(2)) - .40
+    let seattlePercSun = getPercOfDay(getTimezone(-7)) - .40
+
+    if (francePercSun < 0) francePercSun += 1
+    if (seattlePercSun < 0) seattlePercSun += 1
+
 
 
     // francePercSun += 0.0001
