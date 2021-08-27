@@ -1,4 +1,4 @@
-const endTime = new Date('2021-08-31T00:00:00.000+02:00');
+const endTime = new Date('2021-08-31T16:00:00.000-08:00');
 const startTime = new Date('2021-07-17T00:00:00.000+02:00');
 const total = endTime.getTime() - startTime.getTime();
 
